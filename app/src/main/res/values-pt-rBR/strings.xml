@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Cartão de Visitas</string>
+    <string name="add_card">Adicionar cartão</string>
+    <string name="business_card">Cartões de Visitas</string>
+    <string name="organization_name">Nome da empresa</string>
+    <string name="name">Nome</string>
+    <string name="surname">Sobrenome</string>
+    <string name="job_title">Cargo</string>
+    <string name="phone_number">(12) 34567-8910</string>
+    <string name="email">exemplo@email.com</string>
+    <string name="add_phone_number">Telefone</string>
+    <string name="add_email">Email</string>
+    <string name="card_color">Cor do cartão</string>
+    <string name="label_success">Cartão cadastrado com sucesso</string>
+    <string name="label_share">Compartilhar</string>
+</resources>
