@@ -13,4 +13,5 @@
     <string name="card_color">Card color</string>
     <string name="label_success">Card created successfully</string>
     <string name="label_share">Share</string>
+    <string name="salvar">Save</string>
 </resources>

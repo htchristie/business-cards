@@ -12,6 +12,7 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.core.content.FileProvider
 import me.dio.businesscard.R
 import java.io.File
 import java.io.FileOutputStream
@@ -50,11 +51,11 @@ class Image {
                 context.contentResolver?.also { resolver ->
                     val contentValues = ContentValues().apply {
                         put(MediaStore.MediaColumns.DISPLAY_NAME, fileName)
-                        put(MediaStore.MediaColumns.MIME_TYPE, "image/jpeg")
+                        put(MediaStore.MediaColumns.MIME_TYPE, "image/jpg")
                         put(MediaStore.MediaColumns.RELATIVE_PATH, Environment.DIRECTORY_PICTURES)
                     }
 
-                    var imageUri: Uri? =
+                    val imageUri: Uri? =
                         resolver.insert(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, contentValues)
 
                     fos = imageUri?.let {
@@ -65,7 +66,13 @@ class Image {
             } else {
                 val imgDir = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES)
                 val img = File(imgDir, fileName)
-                shareContent(context, Uri.fromFile(img))
+                val imageUri: Uri =
+                    FileProvider.getUriForFile(
+                        context,
+                        "me.dio.businesscard.fileprovider",
+                        img
+                    )
+                shareContent(context, imageUri)
                 fos = FileOutputStream(img)
             }
 
